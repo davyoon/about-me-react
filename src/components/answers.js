@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Container, Table} from 'react-bootstrap';
 
 
-
 const Answers = (props) => {
 
   return(
@@ -15,14 +14,16 @@ const Answers = (props) => {
               <thead>
                 <th>#</th>
                 <th>Question</th>
+                <th>Selected</th>
                 <th>Answer</th>
               </thead>
               <tbody>
                 {props.questions.map((question, idx) => {
                   return (
-                    <tr>
+                    <tr key={question.number}>
                       <td>{idx + 1}</td>
                       <td>{question.question}</td>
+                      <td>{question.selected}</td>
                       <td>{question.choices.reduce((acc, choice) => {
                            return acc = choice.answer ? choice.text : acc;
                           }, "")}
@@ -36,5 +37,6 @@ const Answers = (props) => {
         </Container>  
   )
 }
+
 
 export default Answers;

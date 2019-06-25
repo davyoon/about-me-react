@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Row, Col, Container, Table} from 'react-bootstrap';
-import Questions from './questions.js';
-import QuizBox from './quizBox.js';
-import Answers from './answers.js';
-
+import Questions from './components/questions.js';
+import QuizBox from './components/quizBox.js';
+import Answers from './components/answers.js';
 
 
 class App extends React.Component{
@@ -36,6 +34,17 @@ class App extends React.Component{
         });
       },1500);      
     }
+
+    // _________________Add Selected Answer to Database___________________
+
+    let questionIndex = Questions.reduce((target, question, idx) => {
+      if(question.number === this.state.questionNumber){
+        return target = idx;
+      }else{
+        return target;
+      }
+    },0);
+    Questions[questionIndex].selected = props.text;
   };
 
   
@@ -43,7 +52,7 @@ class App extends React.Component{
 
     let content;
 
-    if(this.state.questionNumber < 3){
+    if(this.state.questionNumber < Questions.length + 1){
        content = <QuizBox handler={this.onAnswerCheck} data={Questions[this.state.questionNumber - 1]} questionNumber={this.state.questionNumber}/>;
 
     } else { 
@@ -58,7 +67,6 @@ class App extends React.Component{
     return content;
   } 
 }
-
 
 
 export default App;
