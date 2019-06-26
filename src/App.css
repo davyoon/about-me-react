@@ -1,14 +1,17 @@
 .main-container{
-  margin-top: 40px;
-  border: 1px solid black;
+  margin: 20px auto;
+
+
 /*  WebkitFilter: drop-shadow(0px 0px 5px #555);
   filter: drop-shadow(0px 0px 5px #555);*/
 }
 
 .correct{
-	background-color: blue;
+	background-color: #5b84b1ff;
+	border: 2px solid #5b84b1ff!important;
 }
 
 .wrong{
-	background-color:red;
+	background-color:#fc766aff;
+	border: 2px solid #fc766aff!important;
 }

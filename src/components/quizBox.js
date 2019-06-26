@@ -1,6 +1,8 @@
 import React from 'react';
 import { Row, Col, Container} from 'react-bootstrap';
-import Choice from './choicebox.js';
+import './quizBox.css';
+import Choice from './choiceBox.js';
+
 
 
 const QuizBox = (props) => {
@@ -8,10 +10,10 @@ const QuizBox = (props) => {
   return(
         <Container className="main-container">
           <Row>
-            <h2>{props.questionNumber} / 20</h2>
+            <h2 className="test">{props.questionNumber} / {props.totalQuestions}</h2>
           </Row>
           <Row>
-            <h2>{props.data.question}</h2>
+            <p className="question">{props.data.question}</p>
           </Row>
           <Row>
             {props.data.choices.map(choice => {

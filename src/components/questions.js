@@ -15,7 +15,7 @@ const questions = [
       {
         img: "firstpic.png",
         answer: false,
-        text: "mountains",
+        text: "mountain",
         key: 2
       }
     ],
@@ -23,18 +23,18 @@ const questions = [
   },
   { 
     number:2,
-    question: "Where would David go for vacation?",
+    question: "Where would David go to vacation?",
     choices: [
       {
-        img: "firstpic.png",
+        img: Picture,
         answer: false,
-        text: "europe",
+        text: "Europe",
         key: 1
       },
       {
-        img: "firstpic.png",
+        img: Picture,
         answer: true,
-        text: "caribbeans",
+        text: "Caribbeans",
         key: 2
       }
     ],
@@ -42,18 +42,18 @@ const questions = [
   },
   { 
     number:3,
-    question: "What would David eat?",
+    question: "What does David like to eat?",
     choices: [
       {
-        img: "firstpic.png",
+        img: Picture,
         answer: false,
-        text: "burger",
+        text: "pizza",
         key: 1
       },
       {
-        img: "firstpic.png",
+        img: Picture,
         answer: true,
-        text: "pizza",
+        text: "burger",
         key: 2
       }
     ],

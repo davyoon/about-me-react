@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -13,5 +14,10 @@ code {
 }
 
 #header{
-	background-color: red;
+	background-color: #1995AD;
+	color:#f1f1f2;
+	font-size: 20px;
+	padding:10px 20px;
+	filter: drop-shadow(0px 0px 5px #555);
 }
+
