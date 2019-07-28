@@ -73,27 +73,24 @@ class App extends React.Component{
   state = {
     questionNumber: 1,
     correctAnswers: 0,
+    isButtonDisabled: false
   };
 
 
   onAnswerCheck = (props,e) => {
+    let correctAnswers = this.state.correctAnswers;
 
     if(props.answer){
       e.target.className === "choice-box" ? e.target.classList.add("correct") : e.target.parentElement.classList.add("correct");
-      this.timer = setTimeout(() => {
-        this.setState(prevState => {
-          return {questionNumber: prevState.questionNumber + 1, correctAnswers: prevState.correctAnswers + 1}
-        });
-      },1500);
-
+      correctAnswers += 1;
     }else{
        e.target.className === "choice-box" ? e.target.classList.add("wrong") : e.target.parentElement.classList.add("wrong");
-      this.timer = setTimeout(() => {
-        this.setState(prevState => {
-          return {questionNumber: prevState.questionNumber + 1}
-        });
-      },1500);      
     }
+
+   this.setState({
+      isButtonDisabled: true
+    })
+
 
     // _________________Add Selected Answer to Database___________________
 
@@ -105,6 +102,12 @@ class App extends React.Component{
       }
     },0);
     Questions[questionIndex].selected = props.text;
+
+    this.timer = setTimeout(() => {
+      this.setState(prevState => {
+        return {questionNumber: prevState.questionNumber + 1, correctAnswers: correctAnswers, isButtonDisabled: false}
+      });
+    }, 1500)
   };
 
   
@@ -113,7 +116,7 @@ class App extends React.Component{
     let content;
 
     if(this.state.questionNumber < Questions.length + 1){
-       content = <QuizBox handler={this.onAnswerCheck} data={Questions[this.state.questionNumber - 1]} questionNumber={this.state.questionNumber} totalQuestions={Questions.length}/>;
+       content = <QuizBox handler={this.onAnswerCheck} data={Questions[this.state.questionNumber - 1]} questionNumber={this.state.questionNumber} totalQuestions={Questions.length} isButtonDisabled={this.state.isButtonDisabled}/>;
 
     } else { 
       content = <Answers correct={this.state.correctAnswers} questions={Questions}/>     

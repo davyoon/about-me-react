@@ -13,7 +13,7 @@ const questions = [
         key: 1
       },
       {
-        img: "firstpic.png",
+        img: Picture,
         answer: false,
         text: "mountain",
         key: 2
