@@ -15,3 +15,9 @@
 	background-color:#fc766aff;
 	border: 2px solid #fc766aff!important;
 }
+
+img{
+	max-width: 300px;
+	max-height: 300px;
+	width: 100%;
+}

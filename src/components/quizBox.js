@@ -19,7 +19,7 @@ const QuizBox = (props) => {
             {props.data.choices.map((choice, idx) => {
               return  (
                 <Col md="6" key={choice.key}>
-                  <Choice handler={props.handler} text={choice.text} img={props.data.choices[idx].img} answer={choice.answer} number={props.data.number} isButtonDisabled={props.isButtonDisabled} />
+                  <Choice handler={props.handler} text={choice.text} img={props.data.choices[idx].img} answer={choice.answer} number={props.data.number} />
                 </Col>
               )  
             })}
